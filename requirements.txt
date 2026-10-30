@@ -1,0 +1,9 @@
+numpy
+xarray
+cfgrib
+eccodes
+rasterio
+pillow
+pyyaml
+requests
+playwright   # verification only

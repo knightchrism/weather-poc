@@ -1,0 +1,133 @@
+{
+ "model": "gfs",
+ "label": "NOAA GFS 0.25\u00b0",
+ "run": "2026-10-30T06:00:00+00:00",
+ "generated": "2026-10-30T13:45:19.054081+00:00",
+ "bounds": [
+  -125.0,
+  24.0,
+  -66.0,
+  50.0
+ ],
+ "frames": [
+  {
+   "hour": 0,
+   "valid": "2026-10-30T06:00:00+00:00",
+   "png": "data/gfs/f000.png",
+   "json": "data/gfs/f000.json",
+   "cog": "data/gfs/f000.tif"
+  },
+  {
+   "hour": 3,
+   "valid": "2026-10-30T09:00:00+00:00",
+   "png": "data/gfs/f003.png",
+   "json": "data/gfs/f003.json",
+   "cog": "data/gfs/f003.tif"
+  },
+  {
+   "hour": 6,
+   "valid": "2026-10-30T12:00:00+00:00",
+   "png": "data/gfs/f006.png",
+   "json": "data/gfs/f006.json",
+   "cog": "data/gfs/f006.tif"
+  },
+  {
+   "hour": 9,
+   "valid": "2026-10-30T15:00:00+00:00",
+   "png": "data/gfs/f009.png",
+   "json": "data/gfs/f009.json",
+   "cog": "data/gfs/f009.tif"
+  },
+  {
+   "hour": 12,
+   "valid": "2026-10-30T18:00:00+00:00",
+   "png": "data/gfs/f012.png",
+   "json": "data/gfs/f012.json",
+   "cog": "data/gfs/f012.tif"
+  },
+  {
+   "hour": 15,
+   "valid": "2026-10-30T21:00:00+00:00",
+   "png": "data/gfs/f015.png",
+   "json": "data/gfs/f015.json",
+   "cog": "data/gfs/f015.tif"
+  },
+  {
+   "hour": 18,
+   "valid": "2026-10-31T00:00:00+00:00",
+   "png": "data/gfs/f018.png",
+   "json": "data/gfs/f018.json",
+   "cog": "data/gfs/f018.tif"
+  },
+  {
+   "hour": 21,
+   "valid": "2026-10-31T03:00:00+00:00",
+   "png": "data/gfs/f021.png",
+   "json": "data/gfs/f021.json",
+   "cog": "data/gfs/f021.tif"
+  },
+  {
+   "hour": 24,
+   "valid": "2026-10-31T06:00:00+00:00",
+   "png": "data/gfs/f024.png",
+   "json": "data/gfs/f024.json",
+   "cog": "data/gfs/f024.tif"
+  },
+  {
+   "hour": 27,
+   "valid": "2026-10-31T09:00:00+00:00",
+   "png": "data/gfs/f027.png",
+   "json": "data/gfs/f027.json",
+   "cog": "data/gfs/f027.tif"
+  },
+  {
+   "hour": 30,
+   "valid": "2026-10-31T12:00:00+00:00",
+   "png": "data/gfs/f030.png",
+   "json": "data/gfs/f030.json",
+   "cog": "data/gfs/f030.tif"
+  },
+  {
+   "hour": 33,
+   "valid": "2026-10-31T15:00:00+00:00",
+   "png": "data/gfs/f033.png",
+   "json": "data/gfs/f033.json",
+   "cog": "data/gfs/f033.tif"
+  },
+  {
+   "hour": 36,
+   "valid": "2026-10-31T18:00:00+00:00",
+   "png": "data/gfs/f036.png",
+   "json": "data/gfs/f036.json",
+   "cog": "data/gfs/f036.tif"
+  },
+  {
+   "hour": 39,
+   "valid": "2026-10-31T21:00:00+00:00",
+   "png": "data/gfs/f039.png",
+   "json": "data/gfs/f039.json",
+   "cog": "data/gfs/f039.tif"
+  },
+  {
+   "hour": 42,
+   "valid": "2026-11-01T00:00:00+00:00",
+   "png": "data/gfs/f042.png",
+   "json": "data/gfs/f042.json",
+   "cog": "data/gfs/f042.tif"
+  },
+  {
+   "hour": 45,
+   "valid": "2026-11-01T03:00:00+00:00",
+   "png": "data/gfs/f045.png",
+   "json": "data/gfs/f045.json",
+   "cog": "data/gfs/f045.tif"
+  },
+  {
+   "hour": 48,
+   "valid": "2026-11-01T06:00:00+00:00",
+   "png": "data/gfs/f048.png",
+   "json": "data/gfs/f048.json",
+   "cog": "data/gfs/f048.tif"
+  }
+ ]
+}

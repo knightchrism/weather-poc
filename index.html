@@ -1,0 +1,39 @@
+<!doctype html><html><head><meta charset="utf-8"><title>GeoKnight GIS – GFS 2 m Temperature</title>
+<link rel="icon" href="data:,"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<style>
+body{margin:0;font-family:system-ui,sans-serif}#map{position:absolute;top:0;bottom:34px;width:100%}
+.panel{position:absolute;top:10px;left:10px;background:#fffffff0;padding:10px 12px;border-radius:8px;box-shadow:0 1px 6px #0004;width:330px;z-index:2}
+h1{font-size:16px;margin:0 0 4px}.sub{font-size:12px;color:#444}.badge{display:inline-block;padding:1px 6px;border-radius:4px;font-size:11px;font-weight:700;color:#fff;background:#2a7}
+.badge.stale{background:#c22}#legend{height:12px;border-radius:3px;margin-top:6px}.ticks{display:flex;justify-content:space-between;font-size:11px}
+.row{display:flex;gap:8px;align-items:center;margin-top:8px}input[type=range]{flex:1}button{padding:3px 10px}
+footer{position:absolute;bottom:0;height:34px;width:100%;background:#123;color:#fff;font-size:12px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;box-sizing:border-box}
+</style></head><body>
+<div id="map"></div>
+<div class="panel"><h1>GFS 2 m Temperature (°F)</h1>
+<div class="sub">Run: <b id="run">…</b> <span id="badge" class="badge">FRESH</span></div>
+<div class="sub">Valid: <b id="valid">…</b> (<span id="fh"></span>)</div>
+<div class="row"><button id="play">▶ Play</button><input id="slider" type="range" min="0" value="0"></div>
+<div id="legend"></div><div class="ticks"><span>-20</span><span>0</span><span>20</span><span>32</span><span>45</span><span>60</span><span>75</span><span>90</span><span>110°F</span></div>
+<div class="sub" style="margin-top:6px">Click the map to read temperature.</div></div>
+<footer><span>GeoKnight GIS proof of concept</span><span>Data: NOAA GFS via NOAA Open Data Dissemination · Basemap: OpenFreeMap © OpenMapTiles © OpenStreetMap contributors</span></footer>
+<script>
+const stops=[[-20,'rgb(145,0,165)'],[0,'rgb(60,40,200)'],[20,'rgb(40,120,240)'],[32,'rgb(120,200,255)'],[45,'rgb(60,190,110)'],[60,'rgb(240,230,60)'],[75,'rgb(250,150,40)'],[90,'rgb(220,40,30)'],[110,'rgb(130,0,20)']];
+document.getElementById('legend').style.background='linear-gradient(to right,'+stops.map(s=>`${s[1]} ${(s[0]+20)/130*100}%`).join(',')+')';
+const map=new maplibregl.Map({container:'map',center:[-92,36],zoom:3.4,style:'https://tiles.openfreemap.org/styles/positron'});
+let M,i=0,timer,grids={};const fmt=d=>new Date(d).toUTCString().replace(':00 GMT',' UTC');
+fetch('data/gfs/manifest.json').then(r=>r.json()).then(m=>{M=m;const[w,s,e,n]=m.bounds;
+ document.getElementById('run').textContent=fmt(m.run);
+ if(Date.now()-new Date(m.run)>12*3600e3){const b=document.getElementById('badge');b.textContent='STALE';b.classList.add('stale')}
+ slider.max=m.frames.length-1;m.frames.forEach(f=>new Image().src=f.png);
+ map.on('load',()=>{map.addSource('t2m',{type:'image',url:m.frames[0].png,coordinates:[[w,n],[e,n],[e,s],[w,s]]});
+  map.addLayer({id:'t2m',type:'raster',source:'t2m',paint:{'raster-opacity':0.75,'raster-fade-duration':0}},(map.getStyle().layers.find(l=>l.type==='symbol')||{}).id);show(0)})});
+function show(k){i=k;const f=M.frames[k];slider.value=k;valid.textContent=fmt(f.valid);fh.textContent='f'+String(f.hour).padStart(3,'0');
+ const src=map.getSource("t2m");src&&src.url!==f.png&&src.updateImage({url:f.png,coordinates:src.coordinates})}
+slider.oninput=e=>show(+e.target.value);
+play.onclick=()=>{if(timer){clearInterval(timer);timer=null;play.textContent='▶ Play'}else{play.textContent='⏸ Pause';timer=setInterval(()=>show((i+1)%M.frames.length),700)}};
+map.on('click',async e=>{const f=M.frames[i];const g=grids[f.json]||(grids[f.json]=await (await fetch(f.json)).json());
+ const r=Math.round((g.lat0-e.lngLat.lat)/g.step),c=Math.round((e.lngLat.lng-g.lon0)/g.step);const v=(g.f[r]||[])[c];
+ new maplibregl.Popup().setLngLat(e.lngLat).setHTML(v==null?'Outside data extent':`<b>${v.toFixed(1)} °F</b> (${((v-32)*5/9).toFixed(1)} °C)<br>${e.lngLat.lat.toFixed(2)}, ${e.lngLat.lng.toFixed(2)}<br>${fmt(f.valid)}`).addTo(map)});
+</script></body></html>

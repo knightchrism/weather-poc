@@ -1,0 +1,15 @@
+output_dir: data
+extent: {west: -125.0, south: 24.0, east: -66.0, north: 50.0}   # CONUS incl. Florida
+qc: {min_c: -80, max_c: 60}
+json_grid_step_deg: 1.0
+png_width: 1180
+models:
+  - name: gfs
+    label: "NOAA GFS 0.25°"
+    bucket_url: https://noaa-gfs-bdp-pds.s3.amazonaws.com
+    key_template: "gfs.{date}/{cycle}/atmos/gfs.t{cycle}z.pgrb2.0p25.f{fh:03d}"
+    run_prefix: "gfs."
+    cycles: ["18", "12", "06", "00"]
+    variable: {match: ":TMP:2 m above ground:", short: t2m}
+    forecast_hours: {start: 0, end: 48, step: 3}
+    lon_0_360: true
