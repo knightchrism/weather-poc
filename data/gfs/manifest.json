@@ -1,8 +1,12 @@
 {
  "model": "gfs",
- "label": "NOAA GFS 0.25\u00b0",
+ "label": "NOAA GFS 0.25\u00b0 \u00b7 2 m temperature",
+ "product": "GFS 0.25\u00b0 pgrb2 \u00b7 TMP:2 m above ground",
+ "time": "forecast",
  "run": "2026-10-30T06:00:00+00:00",
- "generated": "2026-10-30T13:45:19.054081+00:00",
+ "generated": "2026-10-30T14:18:12.354990+00:00",
+ "units": "\u00b0F",
+ "stale_hours": 12,
  "bounds": [
   -125.0,
   24.0,
@@ -15,119 +19,136 @@
    "valid": "2026-10-30T06:00:00+00:00",
    "png": "data/gfs/f000.png",
    "json": "data/gfs/f000.json",
-   "cog": "data/gfs/f000.tif"
+   "cog": "data/gfs/f000.tif",
+   "source": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f000"
   },
   {
    "hour": 3,
    "valid": "2026-10-30T09:00:00+00:00",
    "png": "data/gfs/f003.png",
    "json": "data/gfs/f003.json",
-   "cog": "data/gfs/f003.tif"
+   "cog": "data/gfs/f003.tif",
+   "source": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f003"
   },
   {
    "hour": 6,
    "valid": "2026-10-30T12:00:00+00:00",
    "png": "data/gfs/f006.png",
    "json": "data/gfs/f006.json",
-   "cog": "data/gfs/f006.tif"
+   "cog": "data/gfs/f006.tif",
+   "source": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f006"
   },
   {
    "hour": 9,
    "valid": "2026-10-30T15:00:00+00:00",
    "png": "data/gfs/f009.png",
    "json": "data/gfs/f009.json",
-   "cog": "data/gfs/f009.tif"
+   "cog": "data/gfs/f009.tif",
+   "source": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f009"
   },
   {
    "hour": 12,
    "valid": "2026-10-30T18:00:00+00:00",
    "png": "data/gfs/f012.png",
    "json": "data/gfs/f012.json",
-   "cog": "data/gfs/f012.tif"
+   "cog": "data/gfs/f012.tif",
+   "source": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f012"
   },
   {
    "hour": 15,
    "valid": "2026-10-30T21:00:00+00:00",
    "png": "data/gfs/f015.png",
    "json": "data/gfs/f015.json",
-   "cog": "data/gfs/f015.tif"
+   "cog": "data/gfs/f015.tif",
+   "source": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f015"
   },
   {
    "hour": 18,
    "valid": "2026-10-31T00:00:00+00:00",
    "png": "data/gfs/f018.png",
    "json": "data/gfs/f018.json",
-   "cog": "data/gfs/f018.tif"
+   "cog": "data/gfs/f018.tif",
+   "source": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f018"
   },
   {
    "hour": 21,
    "valid": "2026-10-31T03:00:00+00:00",
    "png": "data/gfs/f021.png",
    "json": "data/gfs/f021.json",
-   "cog": "data/gfs/f021.tif"
+   "cog": "data/gfs/f021.tif",
+   "source": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f021"
   },
   {
    "hour": 24,
    "valid": "2026-10-31T06:00:00+00:00",
    "png": "data/gfs/f024.png",
    "json": "data/gfs/f024.json",
-   "cog": "data/gfs/f024.tif"
+   "cog": "data/gfs/f024.tif",
+   "source": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f024"
   },
   {
    "hour": 27,
    "valid": "2026-10-31T09:00:00+00:00",
    "png": "data/gfs/f027.png",
    "json": "data/gfs/f027.json",
-   "cog": "data/gfs/f027.tif"
+   "cog": "data/gfs/f027.tif",
+   "source": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f027"
   },
   {
    "hour": 30,
    "valid": "2026-10-31T12:00:00+00:00",
    "png": "data/gfs/f030.png",
    "json": "data/gfs/f030.json",
-   "cog": "data/gfs/f030.tif"
+   "cog": "data/gfs/f030.tif",
+   "source": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f030"
   },
   {
    "hour": 33,
    "valid": "2026-10-31T15:00:00+00:00",
    "png": "data/gfs/f033.png",
    "json": "data/gfs/f033.json",
-   "cog": "data/gfs/f033.tif"
+   "cog": "data/gfs/f033.tif",
+   "source": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f033"
   },
   {
    "hour": 36,
    "valid": "2026-10-31T18:00:00+00:00",
    "png": "data/gfs/f036.png",
    "json": "data/gfs/f036.json",
-   "cog": "data/gfs/f036.tif"
+   "cog": "data/gfs/f036.tif",
+   "source": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f036"
   },
   {
    "hour": 39,
    "valid": "2026-10-31T21:00:00+00:00",
    "png": "data/gfs/f039.png",
    "json": "data/gfs/f039.json",
-   "cog": "data/gfs/f039.tif"
+   "cog": "data/gfs/f039.tif",
+   "source": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f039"
   },
   {
    "hour": 42,
    "valid": "2026-11-01T00:00:00+00:00",
    "png": "data/gfs/f042.png",
    "json": "data/gfs/f042.json",
-   "cog": "data/gfs/f042.tif"
+   "cog": "data/gfs/f042.tif",
+   "source": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f042"
   },
   {
    "hour": 45,
    "valid": "2026-11-01T03:00:00+00:00",
    "png": "data/gfs/f045.png",
    "json": "data/gfs/f045.json",
-   "cog": "data/gfs/f045.tif"
+   "cog": "data/gfs/f045.tif",
+   "source": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f045"
   },
   {
    "hour": 48,
    "valid": "2026-11-01T06:00:00+00:00",
    "png": "data/gfs/f048.png",
    "json": "data/gfs/f048.json",
-   "cog": "data/gfs/f048.tif"
+   "cog": "data/gfs/f048.tif",
+   "source": "https://noaa-gfs-bdp-pds.s3.amazonaws.com/gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f048"
   }
  ]
 }

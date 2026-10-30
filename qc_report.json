@@ -1,218 +1,525 @@
 {
  "gfs": {
-  "run": "2026-10-30T06:00:00+00:00",
-  "expected_hours": 17,
-  "ok_hours": 17,
+  "reference_time": "2026-10-30T06:00:00+00:00",
+  "expected_frames": 17,
+  "ok_frames": 17,
   "complete": true,
   "bytes_downloaded": 13339180,
-  "range_limits_c": [
+  "range_limits": [
    -80,
    60
   ],
-  "hours": [
+  "units": "degC",
+  "frames": [
    {
-    "hour": 0,
+    "frame": "f000",
     "ok": true,
-    "min_c": -12.24,
-    "max_c": 28.76,
-    "mean_c": 14.11,
-    "nan_cells": 0,
+    "min": -10.67,
+    "max": 28.76,
+    "mean": 14.25,
+    "nan_frac": 0.0,
     "shape": [
-     105,
-     237
-    ]
+     104,
+     236
+    ],
+    "source_key": "gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f000"
    },
    {
-    "hour": 3,
+    "frame": "f003",
     "ok": true,
-    "min_c": -12.2,
-    "max_c": 28.63,
-    "mean_c": 13.53,
-    "nan_cells": 0,
+    "min": -10.79,
+    "max": 28.63,
+    "mean": 13.66,
+    "nan_frac": 0.0,
     "shape": [
-     105,
-     237
-    ]
+     104,
+     236
+    ],
+    "source_key": "gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f003"
    },
    {
-    "hour": 6,
+    "frame": "f006",
     "ok": true,
-    "min_c": -12.4,
-    "max_c": 28.78,
-    "mean_c": 13.07,
-    "nan_cells": 0,
+    "min": -10.52,
+    "max": 28.78,
+    "mean": 13.21,
+    "nan_frac": 0.0,
     "shape": [
-     105,
-     237
-    ]
+     104,
+     236
+    ],
+    "source_key": "gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f006"
    },
    {
-    "hour": 9,
+    "frame": "f009",
     "ok": true,
-    "min_c": -10.61,
-    "max_c": 29.62,
-    "mean_c": 14.62,
-    "nan_cells": 0,
+    "min": -10.23,
+    "max": 29.62,
+    "mean": 14.77,
+    "nan_frac": 0.0,
     "shape": [
-     105,
-     237
-    ]
+     104,
+     236
+    ],
+    "source_key": "gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f009"
    },
    {
-    "hour": 12,
+    "frame": "f012",
     "ok": true,
-    "min_c": -2.65,
-    "max_c": 31.75,
-    "mean_c": 16.87,
-    "nan_cells": 0,
+    "min": -1.95,
+    "max": 31.75,
+    "mean": 17.01,
+    "nan_frac": 0.0,
     "shape": [
-     105,
-     237
-    ]
+     104,
+     236
+    ],
+    "source_key": "gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f012"
    },
    {
-    "hour": 15,
+    "frame": "f015",
     "ok": true,
-    "min_c": -0.58,
-    "max_c": 32.59,
-    "mean_c": 17.33,
-    "nan_cells": 0,
+    "min": -0.51,
+    "max": 32.59,
+    "mean": 17.47,
+    "nan_frac": 0.0,
     "shape": [
-     105,
-     237
-    ]
+     104,
+     236
+    ],
+    "source_key": "gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f015"
    },
    {
-    "hour": 18,
+    "frame": "f018",
     "ok": true,
-    "min_c": -3.83,
-    "max_c": 29.84,
-    "mean_c": 15.32,
-    "nan_cells": 0,
+    "min": -3.83,
+    "max": 29.84,
+    "mean": 15.45,
+    "nan_frac": 0.0,
     "shape": [
-     105,
-     237
-    ]
+     104,
+     236
+    ],
+    "source_key": "gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f018"
    },
    {
-    "hour": 21,
+    "frame": "f021",
     "ok": true,
-    "min_c": -6.69,
-    "max_c": 29.37,
-    "mean_c": 14.09,
-    "nan_cells": 0,
+    "min": -5.96,
+    "max": 29.37,
+    "mean": 14.22,
+    "nan_frac": 0.0,
     "shape": [
-     105,
-     237
-    ]
+     104,
+     236
+    ],
+    "source_key": "gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f021"
    },
    {
-    "hour": 24,
+    "frame": "f024",
     "ok": true,
-    "min_c": -7.61,
-    "max_c": 29.13,
-    "mean_c": 13.4,
-    "nan_cells": 0,
+    "min": -7.21,
+    "max": 29.13,
+    "mean": 13.53,
+    "nan_frac": 0.0,
     "shape": [
-     105,
-     237
-    ]
+     104,
+     236
+    ],
+    "source_key": "gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f024"
    },
    {
-    "hour": 27,
+    "frame": "f027",
     "ok": true,
-    "min_c": -8.74,
-    "max_c": 28.86,
-    "mean_c": 12.93,
-    "nan_cells": 0,
+    "min": -7.82,
+    "max": 28.86,
+    "mean": 13.06,
+    "nan_frac": 0.0,
     "shape": [
-     105,
-     237
-    ]
+     104,
+     236
+    ],
+    "source_key": "gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f027"
    },
    {
-    "hour": 30,
+    "frame": "f030",
     "ok": true,
-    "min_c": -9.22,
-    "max_c": 28.47,
-    "mean_c": 12.67,
-    "nan_cells": 0,
+    "min": -8.48,
+    "max": 28.47,
+    "mean": 12.79,
+    "nan_frac": 0.0,
     "shape": [
-     105,
-     237
-    ]
+     104,
+     236
+    ],
+    "source_key": "gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f030"
    },
    {
-    "hour": 33,
+    "frame": "f033",
     "ok": true,
-    "min_c": -8.83,
-    "max_c": 29.67,
-    "mean_c": 14.1,
-    "nan_cells": 0,
+    "min": -8.83,
+    "max": 29.67,
+    "mean": 14.23,
+    "nan_frac": 0.0,
     "shape": [
-     105,
-     237
-    ]
+     104,
+     236
+    ],
+    "source_key": "gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f033"
    },
    {
-    "hour": 36,
+    "frame": "f036",
     "ok": true,
-    "min_c": -2.61,
-    "max_c": 31.39,
-    "mean_c": 16.35,
-    "nan_cells": 0,
+    "min": -2.61,
+    "max": 31.39,
+    "mean": 16.47,
+    "nan_frac": 0.0,
     "shape": [
-     105,
-     237
-    ]
+     104,
+     236
+    ],
+    "source_key": "gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f036"
    },
    {
-    "hour": 39,
+    "frame": "f039",
     "ok": true,
-    "min_c": -6.2,
-    "max_c": 32.9,
-    "mean_c": 16.89,
-    "nan_cells": 0,
+    "min": -6.2,
+    "max": 32.9,
+    "mean": 17.0,
+    "nan_frac": 0.0,
     "shape": [
-     105,
-     237
-    ]
+     104,
+     236
+    ],
+    "source_key": "gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f039"
    },
    {
-    "hour": 42,
+    "frame": "f042",
     "ok": true,
-    "min_c": -7.82,
-    "max_c": 31.14,
-    "mean_c": 15.29,
-    "nan_cells": 0,
+    "min": -7.82,
+    "max": 31.14,
+    "mean": 15.41,
+    "nan_frac": 0.0,
     "shape": [
-     105,
-     237
-    ]
+     104,
+     236
+    ],
+    "source_key": "gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f042"
    },
    {
-    "hour": 45,
+    "frame": "f045",
     "ok": true,
-    "min_c": -7.83,
-    "max_c": 29.08,
-    "mean_c": 14.36,
-    "nan_cells": 0,
+    "min": -7.83,
+    "max": 29.08,
+    "mean": 14.47,
+    "nan_frac": 0.0,
     "shape": [
-     105,
-     237
-    ]
+     104,
+     236
+    ],
+    "source_key": "gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f045"
    },
    {
-    "hour": 48,
+    "frame": "f048",
     "ok": true,
-    "min_c": -7.31,
-    "max_c": 28.57,
-    "mean_c": 13.95,
-    "nan_cells": 0,
+    "min": -7.31,
+    "max": 28.57,
+    "mean": 14.06,
+    "nan_frac": 0.0,
     "shape": [
-     105,
-     237
-    ]
+     104,
+     236
+    ],
+    "source_key": "gfs.20261030/06/atmos/gfs.t06z.pgrb2.0p25.f048"
+   }
+  ]
+ },
+ "hrrr": {
+  "reference_time": "2026-10-30T13:00:00+00:00",
+  "expected_frames": 7,
+  "ok_frames": 7,
+  "complete": true,
+  "bytes_downloaded": 4590927,
+  "range_limits": [
+   -40,
+   90
+  ],
+  "units": "dBZ",
+  "frames": [
+   {
+    "frame": "f000",
+    "ok": true,
+    "min": -10.0,
+    "max": 56.99,
+    "mean": -7.29,
+    "nan_frac": 0.032,
+    "shape": [
+     520,
+     1180
+    ],
+    "source_key": "hrrr.20261030/conus/hrrr.t13z.wrfsfcf00.grib2"
+   },
+   {
+    "frame": "f002",
+    "ok": true,
+    "min": -10.0,
+    "max": 64.22,
+    "mean": -7.05,
+    "nan_frac": 0.032,
+    "shape": [
+     520,
+     1180
+    ],
+    "source_key": "hrrr.20261030/conus/hrrr.t13z.wrfsfcf02.grib2"
+   },
+   {
+    "frame": "f004",
+    "ok": true,
+    "min": -10.0,
+    "max": 62.05,
+    "mean": -6.07,
+    "nan_frac": 0.032,
+    "shape": [
+     520,
+     1180
+    ],
+    "source_key": "hrrr.20261030/conus/hrrr.t13z.wrfsfcf04.grib2"
+   },
+   {
+    "frame": "f006",
+    "ok": true,
+    "min": -10.0,
+    "max": 66.46,
+    "mean": -5.48,
+    "nan_frac": 0.032,
+    "shape": [
+     520,
+     1180
+    ],
+    "source_key": "hrrr.20261030/conus/hrrr.t13z.wrfsfcf06.grib2"
+   },
+   {
+    "frame": "f008",
+    "ok": true,
+    "min": -10.0,
+    "max": 61.5,
+    "mean": -5.02,
+    "nan_frac": 0.032,
+    "shape": [
+     520,
+     1180
+    ],
+    "source_key": "hrrr.20261030/conus/hrrr.t13z.wrfsfcf08.grib2"
+   },
+   {
+    "frame": "f010",
+    "ok": true,
+    "min": -10.0,
+    "max": 62.17,
+    "mean": -4.82,
+    "nan_frac": 0.032,
+    "shape": [
+     520,
+     1180
+    ],
+    "source_key": "hrrr.20261030/conus/hrrr.t13z.wrfsfcf10.grib2"
+   },
+   {
+    "frame": "f012",
+    "ok": true,
+    "min": -10.0,
+    "max": 62.53,
+    "mean": -4.9,
+    "nan_frac": 0.032,
+    "shape": [
+     520,
+     1180
+    ],
+    "source_key": "hrrr.20261030/conus/hrrr.t13z.wrfsfcf12.grib2"
+   }
+  ]
+ },
+ "mrms": {
+  "reference_time": "2026-10-30T14:16:40+00:00",
+  "expected_frames": 6,
+  "ok_frames": 6,
+  "complete": true,
+  "bytes_downloaded": 9875934,
+  "range_limits": [
+   -100,
+   100
+  ],
+  "units": "dBZ",
+  "frames": [
+   {
+    "frame": "20261030T1326Z",
+    "ok": true,
+    "min": -99.0,
+    "max": 58.5,
+    "mean": -84.48,
+    "nan_frac": 0.1554,
+    "shape": [
+     1300,
+     2950
+    ],
+    "source_key": "CONUS/MergedReflectivityQCComposite_00.50/20261030/MRMS_MergedReflectivityQCComposite_00.50_20261030-132641.grib2.gz"
+   },
+   {
+    "frame": "20261030T1336Z",
+    "ok": true,
+    "min": -99.0,
+    "max": 69.5,
+    "mean": -84.37,
+    "nan_frac": 0.1554,
+    "shape": [
+     1300,
+     2950
+    ],
+    "source_key": "CONUS/MergedReflectivityQCComposite_00.50/20261030/MRMS_MergedReflectivityQCComposite_00.50_20261030-133640.grib2.gz"
+   },
+   {
+    "frame": "20261030T1346Z",
+    "ok": true,
+    "min": -99.0,
+    "max": 65.0,
+    "mean": -84.35,
+    "nan_frac": 0.1554,
+    "shape": [
+     1300,
+     2950
+    ],
+    "source_key": "CONUS/MergedReflectivityQCComposite_00.50/20261030/MRMS_MergedReflectivityQCComposite_00.50_20261030-134639.grib2.gz"
+   },
+   {
+    "frame": "20261030T1356Z",
+    "ok": true,
+    "min": -99.0,
+    "max": 60.5,
+    "mean": -84.25,
+    "nan_frac": 0.1554,
+    "shape": [
+     1300,
+     2950
+    ],
+    "source_key": "CONUS/MergedReflectivityQCComposite_00.50/20261030/MRMS_MergedReflectivityQCComposite_00.50_20261030-135641.grib2.gz"
+   },
+   {
+    "frame": "20261030T1406Z",
+    "ok": true,
+    "min": -99.0,
+    "max": 62.0,
+    "mean": -84.31,
+    "nan_frac": 0.1554,
+    "shape": [
+     1300,
+     2950
+    ],
+    "source_key": "CONUS/MergedReflectivityQCComposite_00.50/20261030/MRMS_MergedReflectivityQCComposite_00.50_20261030-140640.grib2.gz"
+   },
+   {
+    "frame": "20261030T1416Z",
+    "ok": true,
+    "min": -99.0,
+    "max": 61.0,
+    "mean": -84.23,
+    "nan_frac": 0.1554,
+    "shape": [
+     1300,
+     2950
+    ],
+    "source_key": "CONUS/MergedReflectivityQCComposite_00.50/20261030/MRMS_MergedReflectivityQCComposite_00.50_20261030-141640.grib2.gz"
+   }
+  ]
+ },
+ "goes": {
+  "reference_time": "2026-10-30T14:16:00+00:00",
+  "expected_frames": 6,
+  "ok_frames": 6,
+  "complete": true,
+  "bytes_downloaded": 22840196,
+  "range_limits": [
+   -110,
+   60
+  ],
+  "units": "degC",
+  "frames": [
+   {
+    "frame": "20261030T1326Z",
+    "ok": true,
+    "min": -66.16,
+    "max": 23.76,
+    "mean": -5.87,
+    "nan_frac": 0.0375,
+    "shape": [
+     520,
+     1180
+    ],
+    "source_key": "ABI-L2-CMIPC/2026/303/13/OR_ABI-L2-CMIPC-M6C13_G19_s20263031326174_e20263031328559_c20263031329016.nc"
+   },
+   {
+    "frame": "20261030T1336Z",
+    "ok": true,
+    "min": -65.18,
+    "max": 23.84,
+    "mean": -5.76,
+    "nan_frac": 0.0375,
+    "shape": [
+     520,
+     1180
+    ],
+    "source_key": "ABI-L2-CMIPC/2026/303/13/OR_ABI-L2-CMIPC-M6C13_G19_s20263031336174_e20263031338558_c20263031339041.nc"
+   },
+   {
+    "frame": "20261030T1346Z",
+    "ok": true,
+    "min": -65.27,
+    "max": 23.83,
+    "mean": -5.64,
+    "nan_frac": 0.0375,
+    "shape": [
+     520,
+     1180
+    ],
+    "source_key": "ABI-L2-CMIPC/2026/303/13/OR_ABI-L2-CMIPC-M6C13_G19_s20263031346174_e20263031348558_c20263031349044.nc"
+   },
+   {
+    "frame": "20261030T1356Z",
+    "ok": true,
+    "min": -64.59,
+    "max": 24.16,
+    "mean": -5.5,
+    "nan_frac": 0.0375,
+    "shape": [
+     520,
+     1180
+    ],
+    "source_key": "ABI-L2-CMIPC/2026/303/13/OR_ABI-L2-CMIPC-M6C13_G19_s20263031356174_e20263031358558_c20263031359031.nc"
+   },
+   {
+    "frame": "20261030T1406Z",
+    "ok": true,
+    "min": -64.23,
+    "max": 24.41,
+    "mean": -5.35,
+    "nan_frac": 0.0375,
+    "shape": [
+     520,
+     1180
+    ],
+    "source_key": "ABI-L2-CMIPC/2026/303/14/OR_ABI-L2-CMIPC-M6C13_G19_s20263031406174_e20263031408559_c20263031409023.nc"
+   },
+   {
+    "frame": "20261030T1416Z",
+    "ok": true,
+    "min": -64.43,
+    "max": 24.67,
+    "mean": -5.19,
+    "nan_frac": 0.0375,
+    "shape": [
+     520,
+     1180
+    ],
+    "source_key": "ABI-L2-CMIPC/2026/303/14/OR_ABI-L2-CMIPC-M6C13_G19_s20263031416174_e20263031418558_c20263031419046.nc"
    }
   ]
  }

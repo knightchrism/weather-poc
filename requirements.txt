@@ -5,5 +5,7 @@ eccodes
 rasterio
 pillow
 pyyaml
+h5netcdf
+h5py
 requests
 playwright   # verification only

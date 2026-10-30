@@ -1,6 +1,6 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><title>GeoKnight GIS – GFS 2 m Temperature Forecast Map</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>GeoKnight GIS – NOAA Weather Layers: GFS, HRRR, MRMS, GOES</title>
 <link rel="icon" href="data:,"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Proof of concept by GeoKnight GIS: NOAA GFS 2 m temperature forecast from NOAA Open Data on AWS, animated in MapLibre GL.">
+<meta name="description" content="Proof of concept by GeoKnight GIS: NOAA GFS, HRRR, MRMS radar and GOES satellite layers from NOAA Open Data on AWS in MapLibre GL.">
 <meta name="theme-color" content="#0b1220">
 <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
@@ -22,6 +22,7 @@ main{flex:1 0 auto;display:grid;grid-template-columns:340px 1fr;gap:16px;padding
 .row{display:flex;gap:10px;align-items:center;margin-top:12px}input[type=range]{flex:1;accent-color:var(--gold)}
 button{background:var(--gold);color:#0b1220;border:0;border-radius:8px;padding:6px 12px;font-weight:700;cursor:pointer}button:hover{background:var(--gold2)}
 #legend{height:12px;border-radius:4px;margin-top:6px}.ticks{display:flex;justify-content:space-between;font-size:10.5px;color:var(--mut);margin-top:3px}
+.picker{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px}.picker button{background:transparent;color:var(--txt);border:1px solid var(--line);font-weight:600;font-size:12.5px;padding:7px 6px}.picker button.on{background:var(--gold);color:#0b1220;border-color:var(--gold)}
 .panel ul{margin:0;padding-left:18px;color:var(--mut);line-height:1.5}.hint{color:var(--mut);margin-top:8px}
 .mapwrap{position:relative;border:1px solid var(--line);border-radius:12px;overflow:hidden;min-height:480px}#map{position:absolute;inset:0}
 .maplibregl-popup-content{color:#0b1220}
@@ -31,43 +32,68 @@ main{grid-template-columns:1fr;padding:0 14px 14px}.mapwrap{order:-1;min-height:
 </style></head><body>
 <header><div class="brand"><div class="logo">GK</div><div><div class="bname">GeoKnight <span>GIS</span></div><div class="tag">GIS · Spatial Data · AI Integration Engineering</div></div></div>
 <nav><a href="https://github.com/knightchrism/weather-poc">Repo</a><a href="https://knightchrism.github.io/">knightchrism.github.io</a></nav></header>
-<section class="hero"><h1>GFS 2 m Temperature <em>Forecast Map</em></h1>
-<p>A proof of concept that pulls NOAA GFS forecast data straight from NOAA Open Data on AWS, processes it to Cloud-Optimized GeoTIFFs and map overlays, and animates it in the browser.</p></section>
+<section class="hero"><h1>NOAA Weather Layers <em>on One Map</em></h1>
+<p>A proof of concept that pulls GFS, HRRR, MRMS radar and GOES satellite data straight from NOAA Open Data on AWS, processes it to Cloud-Optimized GeoTIFFs and map overlays, and animates it in the browser.</p></section>
 <main>
-<aside class="panel"><h2>2 m Temperature (°F)</h2>
-<div class="sub">Run: <b id="run">…</b> <span id="badge" class="badge">FRESH</span></div>
-<div class="sub">Valid: <b id="valid">…</b> (<span id="fh"></span>)</div>
-<div class="row"><button id="play">▶ Play</button><input id="slider" type="range" min="0" value="0" aria-label="Forecast hour"></div>
-<div id="legend"></div><div class="ticks"><span>-20</span><span>0</span><span>20</span><span>32</span><span>45</span><span>60</span><span>75</span><span>90</span><span>110°F</span></div>
-<div class="hint">Click or tap the map to read the temperature at a point.</div>
+<aside class="panel">
+<div class="picker" id="picker" role="tablist" aria-label="Layer"></div>
+<h2 id="ltitle">…</h2>
+<div class="sub" id="lprod"></div>
+<div class="sub"><span id="reflabel">Run</span>: <b id="run">…</b> <span id="badge" class="badge">FRESH</span></div>
+<div class="sub">Valid: <b id="valid">…</b> <span id="fh"></span></div>
+<div class="row"><button id="play">▶ Play</button><input id="slider" type="range" min="0" value="0" aria-label="Time step"></div>
+<div id="legend"></div><div class="ticks" id="ticks"></div>
+<div class="hint">Click or tap the map to read the value at a point (coarse grid, nearest cell).</div>
 <h3>What this shows</h3><ul>
-<li>Model: NOAA GFS 0.25°, 2 m air temperature</li>
-<li>Forecast hours f000–f048, every 3 h, from the latest available run</li>
-<li>Source: NOAA Open Data Dissemination on AWS (<code>noaa-gfs-bdp-pds</code>), fetched via HTTP byte-range for just the needed GRIB2 message</li>
-<li>Extent: CONUS incl. Florida</li>
-<li>Static snapshot: data updates only when the pipeline is rerun</li></ul></aside>
+<li><b>GFS temp</b> – NOAA GFS 0.25° 2 m temperature, f000–f048 every 3 h</li>
+<li><b>HRRR radar fcst</b> – NOAA HRRR composite reflectivity, f00–f12 every 2 h</li>
+<li><b>MRMS radar</b> – observed MRMS merged composite reflectivity, latest 6 scans ~10 min apart</li>
+<li><b>GOES IR</b> – GOES-19 ABI band 13 (10.3 µm) brightness temperature, CONUS sector, latest 6 scans ~10 min apart</li>
+<li>All data from NOAA Open Data Dissemination on AWS, fetched anonymously over HTTPS</li>
+<li>Extent: CONUS incl. Florida. Static snapshot: updates only when the pipeline is rerun</li></ul></aside>
 <div class="mapwrap"><div id="map"></div></div>
 </main>
-<footer><b>Data:</b> NOAA/NCEP Global Forecast System (GFS) via the NOAA Open Data Dissemination (NODD) program on AWS. 
-<b>Built with:</b> <a href="https://maplibre.org/">MapLibre GL JS</a>, <a href="https://xarray.dev/">xarray</a>, <a href="https://github.com/ecmwf/cfgrib">cfgrib</a>/ecCodes, <a href="https://rasterio.readthedocs.io/">rasterio</a> (GDAL), NumPy, Pillow. 
+<footer><b>Data:</b> NOAA/NCEP Global Forecast System (GFS); NOAA/NCEP High-Resolution Rapid Refresh (HRRR); NOAA NSSL/NCEP Multi-Radar/Multi-Sensor System (MRMS); NOAA GOES-R Series/NESDIS (GOES-19 ABI) — all via the NOAA Open Data Dissemination (NODD) program on AWS. 
+<b>Built with:</b> <a href="https://maplibre.org/">MapLibre GL JS</a>, <a href="https://xarray.dev/">xarray</a>, <a href="https://github.com/ecmwf/cfgrib">cfgrib</a>/ecCodes, <a href="https://rasterio.readthedocs.io/">rasterio</a> (GDAL/PROJ), h5netcdf, NumPy, Pillow. 
 <b>Basemap:</b> <a href="https://openfreemap.org/">OpenFreeMap</a> © OpenMapTiles © OpenStreetMap contributors.<br>
 © GeoKnight GIS · Christopher Knight · <a href="https://github.com/knightchrism/weather-poc">Source on GitHub</a> · <a href="https://knightchrism.github.io/">knightchrism.github.io</a> · Proof of concept, not for operational use.</footer>
 <script>
-const stops=[[-20,'rgb(145,0,165)'],[0,'rgb(60,40,200)'],[20,'rgb(40,120,240)'],[32,'rgb(120,200,255)'],[45,'rgb(60,190,110)'],[60,'rgb(240,230,60)'],[75,'rgb(250,150,40)'],[90,'rgb(220,40,30)'],[110,'rgb(130,0,20)']];
-document.getElementById('legend').style.background='linear-gradient(to right,'+stops.map(s=>`${s[1]} ${(s[0]+20)/130*100}%`).join(',')+')';
+const $=id=>document.getElementById(id);
+const fmt=d=>new Date(d).toUTCString().replace(/:\d\d GMT/,' UTC');
 const map=new maplibregl.Map({container:'map',center:[-92,36],zoom:3.4,style:'https://tiles.openfreemap.org/styles/dark',attributionControl:{compact:true}});
-let M,i=0,timer,grids={};const fmt=d=>new Date(d).toUTCString().replace(':00 GMT',' UTC');
-fetch('data/gfs/manifest.json').then(r=>r.json()).then(m=>{M=m;const[w,s,e,n]=m.bounds;
- document.getElementById('run').textContent=fmt(m.run);
- if(Date.now()-new Date(m.run)>12*3600e3){const b=document.getElementById('badge');b.textContent='STALE';b.classList.add('stale')}
- slider.max=m.frames.length-1;m.frames.forEach(f=>new Image().src=f.png);
- map.on('load',()=>{map.addSource('t2m',{type:'image',url:m.frames[0].png,coordinates:[[w,n],[e,n],[e,s],[w,s]]});
-  map.addLayer({id:'t2m',type:'raster',source:'t2m',paint:{'raster-opacity':0.72,'raster-fade-duration':0}},(map.getStyle().layers.find(l=>l.type==='symbol')||{}).id);show(0)})});
-function show(k){i=k;const f=M.frames[k];slider.value=k;valid.textContent=fmt(f.valid);fh.textContent='f'+String(f.hour).padStart(3,'0');
- const src=map.getSource("t2m");src&&src.url!==f.png&&src.updateImage({url:f.png,coordinates:src.coordinates})}
+let L=[],M={},cur=null,i=0,timer,grids={};
+const ready=new Promise(r=>map.on('load',r));
+fetch('data/layers.json').then(r=>r.json()).then(async ls=>{L=ls;
+ await Promise.all(L.map(l=>fetch(`data/${l.name}/manifest.json`).then(r=>r.json()).then(m=>M[l.name]=m)));
+ L.forEach(l=>{const b=document.createElement('button');b.textContent=l.short;b.dataset.n=l.name;b.setAttribute('role','tab');b.onclick=()=>select(l.name);$('picker').appendChild(b);
+  M[l.name].frames.forEach(f=>new Image().src=f.png)});
+ await ready;const before=(map.getStyle().layers.find(x=>x.type==='symbol')||{}).id;
+ L.forEach(l=>{const m=M[l.name],[w,s,e,n]=m.bounds;
+  map.addSource(l.name,{type:'image',url:m.frames[0].png,coordinates:[[w,n],[e,n],[e,s],[w,s]]});
+  map.addLayer({id:l.name,type:'raster',source:l.name,layout:{visibility:'none'},paint:{'raster-opacity':0.8,'raster-fade-duration':0}},before)});
+ select(L[0].name)});
+function select(n){if(timer)play.onclick();if(cur)map.setLayoutProperty(cur,'visibility','none');cur=n;map.setLayoutProperty(n,'visibility','visible');
+ const l=L.find(x=>x.name===n),m=M[n],st=l.stops;
+ document.querySelectorAll('#picker button').forEach(b=>{b.classList.toggle('on',b.dataset.n===n);b.setAttribute('aria-selected',b.dataset.n===n)});
+ $('ltitle').textContent=l.label+' ('+l.units+')';$('lprod').textContent=l.product;
+ const lo=st[0][0],hi=st[st.length-1][0],pc=v=>(v-lo)/(hi-lo)*100;
+ $('legend').style.background='linear-gradient(to right,'+st.map(s=>`rgb(${s[1]}) ${pc(s[0])}%`).join(',')+')';
+ $('ticks').innerHTML=l.ticks.map((t,k)=>`<span>${t}${k===l.ticks.length-1?' '+l.units:''}</span>`).join('');
+ const obs=l.time==='observed';$('reflabel').textContent=obs?'Latest scan':'Run';
+ const ref=obs?m.frames[m.frames.length-1].valid:m.run;$('run').textContent=fmt(ref);
+ const stale=Date.now()-new Date(ref)>m.stale_hours*3600e3;$('badge').textContent=stale?'STALE':'FRESH';$('badge').classList.toggle('stale',stale);
+ $('badge').title=`STALE if older than ${m.stale_hours} h`;
+ slider.max=m.frames.length-1;document.querySelectorAll('.maplibregl-popup').forEach(p=>p.remove());show(obs?m.frames.length-1:0)}
+function show(k){const m=M[cur];i=k;const f=m.frames[k];slider.value=k;$('valid').textContent=fmt(f.valid);
+ $('fh').textContent=f.hour==null?'(observed)':'(f'+String(f.hour).padStart(3,'0')+')';
+ const src=map.getSource(cur);src&&src.url!==f.png&&src.updateImage({url:f.png,coordinates:src.coordinates})}
 slider.oninput=e=>show(+e.target.value);
-play.onclick=()=>{if(timer){clearInterval(timer);timer=null;play.textContent='▶ Play'}else{play.textContent='⏸ Pause';timer=setInterval(()=>show((i+1)%M.frames.length),700)}};
-map.on('click',async e=>{const f=M.frames[i];const g=grids[f.json]||(grids[f.json]=await (await fetch(f.json)).json());
+play.onclick=()=>{if(timer){clearInterval(timer);timer=null;play.textContent='▶ Play'}else{play.textContent='⏸ Pause';timer=setInterval(()=>show((i+1)%M[cur].frames.length),800)}};
+map.on('click',async e=>{if(!cur)return;const l=L.find(x=>x.name===cur),f=M[cur].frames[i];
+ const g=grids[f.json]||(grids[f.json]=await (await fetch(f.json)).json());
  const r=Math.round((g.lat0-e.lngLat.lat)/g.step),c=Math.round((e.lngLat.lng-g.lon0)/g.step);const v=(g.f[r]||[])[c];
- new maplibregl.Popup().setLngLat(e.lngLat).setHTML(v==null?'Outside data extent':`<b>${v.toFixed(1)} °F</b> (${((v-32)*5/9).toFixed(1)} °C)<br>${e.lngLat.lat.toFixed(2)}, ${e.lngLat.lng.toFixed(2)}<br>${fmt(f.valid)}`).addTo(map)});
+ let txt=v==null?'No data here':`<b>${v.toFixed(1)} ${l.units}</b>`;
+ if(v!=null&&l.units==='°F')txt+=` (${((v-32)*5/9).toFixed(1)} °C)`;
+ if(v!=null&&l.units==='dBZ'&&v<5)txt='<b>No significant echo</b> (&lt; 5 dBZ)';
+ new maplibregl.Popup().setLngLat(e.lngLat).setHTML(`${txt}<br>${l.short} · ${e.lngLat.lat.toFixed(2)}, ${e.lngLat.lng.toFixed(2)}<br>${fmt(f.valid)}`).addTo(map)});
 </script></body></html>

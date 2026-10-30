@@ -1,0 +1,66 @@
+{
+ "model": "mrms",
+ "label": "NOAA MRMS \u00b7 merged composite reflectivity (observed)",
+ "product": "MRMS CONUS MergedReflectivityQCComposite_00.50",
+ "time": "observed",
+ "run": "2026-10-30T14:16:40+00:00",
+ "generated": "2026-10-30T14:19:06.112226+00:00",
+ "units": "dBZ",
+ "stale_hours": 1,
+ "bounds": [
+  -125.0,
+  24.0,
+  -66.0,
+  50.0
+ ],
+ "frames": [
+  {
+   "hour": null,
+   "valid": "2026-10-30T13:26:41+00:00",
+   "png": "data/mrms/20261030T1326Z.png",
+   "json": "data/mrms/20261030T1326Z.json",
+   "cog": "data/mrms/20261030T1326Z.tif",
+   "source": "https://noaa-mrms-pds.s3.amazonaws.com/CONUS/MergedReflectivityQCComposite_00.50/20261030/MRMS_MergedReflectivityQCComposite_00.50_20261030-132641.grib2.gz"
+  },
+  {
+   "hour": null,
+   "valid": "2026-10-30T13:36:40+00:00",
+   "png": "data/mrms/20261030T1336Z.png",
+   "json": "data/mrms/20261030T1336Z.json",
+   "cog": "data/mrms/20261030T1336Z.tif",
+   "source": "https://noaa-mrms-pds.s3.amazonaws.com/CONUS/MergedReflectivityQCComposite_00.50/20261030/MRMS_MergedReflectivityQCComposite_00.50_20261030-133640.grib2.gz"
+  },
+  {
+   "hour": null,
+   "valid": "2026-10-30T13:46:39+00:00",
+   "png": "data/mrms/20261030T1346Z.png",
+   "json": "data/mrms/20261030T1346Z.json",
+   "cog": "data/mrms/20261030T1346Z.tif",
+   "source": "https://noaa-mrms-pds.s3.amazonaws.com/CONUS/MergedReflectivityQCComposite_00.50/20261030/MRMS_MergedReflectivityQCComposite_00.50_20261030-134639.grib2.gz"
+  },
+  {
+   "hour": null,
+   "valid": "2026-10-30T13:56:41+00:00",
+   "png": "data/mrms/20261030T1356Z.png",
+   "json": "data/mrms/20261030T1356Z.json",
+   "cog": "data/mrms/20261030T1356Z.tif",
+   "source": "https://noaa-mrms-pds.s3.amazonaws.com/CONUS/MergedReflectivityQCComposite_00.50/20261030/MRMS_MergedReflectivityQCComposite_00.50_20261030-135641.grib2.gz"
+  },
+  {
+   "hour": null,
+   "valid": "2026-10-30T14:06:40+00:00",
+   "png": "data/mrms/20261030T1406Z.png",
+   "json": "data/mrms/20261030T1406Z.json",
+   "cog": "data/mrms/20261030T1406Z.tif",
+   "source": "https://noaa-mrms-pds.s3.amazonaws.com/CONUS/MergedReflectivityQCComposite_00.50/20261030/MRMS_MergedReflectivityQCComposite_00.50_20261030-140640.grib2.gz"
+  },
+  {
+   "hour": null,
+   "valid": "2026-10-30T14:16:40+00:00",
+   "png": "data/mrms/20261030T1416Z.png",
+   "json": "data/mrms/20261030T1416Z.json",
+   "cog": "data/mrms/20261030T1416Z.tif",
+   "source": "https://noaa-mrms-pds.s3.amazonaws.com/CONUS/MergedReflectivityQCComposite_00.50/20261030/MRMS_MergedReflectivityQCComposite_00.50_20261030-141640.grib2.gz"
+  }
+ ]
+}

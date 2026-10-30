@@ -1,0 +1,66 @@
+{
+ "model": "goes",
+ "label": "NOAA GOES-19 ABI \u00b7 band 13 clean IR (10.3 \u00b5m)",
+ "product": "GOES-19 ABI-L2-CMIPC band 13 (CMI brightness temperature)",
+ "time": "observed",
+ "run": "2026-10-30T14:16:00+00:00",
+ "generated": "2026-10-30T14:19:56.476164+00:00",
+ "units": "\u00b0C",
+ "stale_hours": 1,
+ "bounds": [
+  -125.0,
+  24.0,
+  -66.0,
+  50.0
+ ],
+ "frames": [
+  {
+   "hour": null,
+   "valid": "2026-10-30T13:26:00+00:00",
+   "png": "data/goes/20261030T1326Z.png",
+   "json": "data/goes/20261030T1326Z.json",
+   "cog": "data/goes/20261030T1326Z.tif",
+   "source": "https://noaa-goes19.s3.amazonaws.com/ABI-L2-CMIPC/2026/303/13/OR_ABI-L2-CMIPC-M6C13_G19_s20263031326174_e20263031328559_c20263031329016.nc"
+  },
+  {
+   "hour": null,
+   "valid": "2026-10-30T13:36:00+00:00",
+   "png": "data/goes/20261030T1336Z.png",
+   "json": "data/goes/20261030T1336Z.json",
+   "cog": "data/goes/20261030T1336Z.tif",
+   "source": "https://noaa-goes19.s3.amazonaws.com/ABI-L2-CMIPC/2026/303/13/OR_ABI-L2-CMIPC-M6C13_G19_s20263031336174_e20263031338558_c20263031339041.nc"
+  },
+  {
+   "hour": null,
+   "valid": "2026-10-30T13:46:00+00:00",
+   "png": "data/goes/20261030T1346Z.png",
+   "json": "data/goes/20261030T1346Z.json",
+   "cog": "data/goes/20261030T1346Z.tif",
+   "source": "https://noaa-goes19.s3.amazonaws.com/ABI-L2-CMIPC/2026/303/13/OR_ABI-L2-CMIPC-M6C13_G19_s20263031346174_e20263031348558_c20263031349044.nc"
+  },
+  {
+   "hour": null,
+   "valid": "2026-10-30T13:56:00+00:00",
+   "png": "data/goes/20261030T1356Z.png",
+   "json": "data/goes/20261030T1356Z.json",
+   "cog": "data/goes/20261030T1356Z.tif",
+   "source": "https://noaa-goes19.s3.amazonaws.com/ABI-L2-CMIPC/2026/303/13/OR_ABI-L2-CMIPC-M6C13_G19_s20263031356174_e20263031358558_c20263031359031.nc"
+  },
+  {
+   "hour": null,
+   "valid": "2026-10-30T14:06:00+00:00",
+   "png": "data/goes/20261030T1406Z.png",
+   "json": "data/goes/20261030T1406Z.json",
+   "cog": "data/goes/20261030T1406Z.tif",
+   "source": "https://noaa-goes19.s3.amazonaws.com/ABI-L2-CMIPC/2026/303/14/OR_ABI-L2-CMIPC-M6C13_G19_s20263031406174_e20263031408559_c20263031409023.nc"
+  },
+  {
+   "hour": null,
+   "valid": "2026-10-30T14:16:00+00:00",
+   "png": "data/goes/20261030T1416Z.png",
+   "json": "data/goes/20261030T1416Z.json",
+   "cog": "data/goes/20261030T1416Z.tif",
+   "source": "https://noaa-goes19.s3.amazonaws.com/ABI-L2-CMIPC/2026/303/14/OR_ABI-L2-CMIPC-M6C13_G19_s20263031416174_e20263031418558_c20263031419046.nc"
+  }
+ ]
+}
