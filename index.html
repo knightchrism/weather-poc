@@ -96,4 +96,7 @@ map.on('click',async e=>{if(!cur)return;const l=L.find(x=>x.name===cur),f=M[cur]
  if(v!=null&&l.units==='°F')txt+=` (${((v-32)*5/9).toFixed(1)} °C)`;
  if(v!=null&&l.units==='dBZ'&&v<5)txt='<b>No significant echo</b> (&lt; 5 dBZ)';
  new maplibregl.Popup().setLngLat(e.lngLat).setHTML(`${txt}<br>${l.short} · ${e.lngLat.lat.toFixed(2)}, ${e.lngLat.lng.toFixed(2)}<br>${fmt(f.valid)}`).addTo(map)});
-</script></body></html>
+</script><!-- GeoKnight home button -->
+<style>.gk-home{position:fixed;left:12px;bottom:12px;z-index:10000;width:44px;height:44px;border-radius:50%;background:#0b1f3a;border:1.5px solid #c9a227;display:grid;place-items:center;box-shadow:0 2px 8px rgba(0,0,0,.45);box-sizing:border-box;text-decoration:none}.gk-home:hover,.gk-home:focus{background:#13305a;outline:none}.gk-home:focus-visible{box-shadow:0 0 0 3px rgba(201,162,39,.6)}.gk-home svg{display:block}.leaflet-bottom.leaflet-left,.maplibregl-ctrl-bottom-left,.mapboxgl-ctrl-bottom-left,.cesium-viewer-bottom,.ol-scale-line{margin-bottom:60px!important}.maplibregl-ctrl-bottom-right .maplibregl-ctrl-attrib.maplibregl-compact-show,.leaflet-bottom.leaflet-right .leaflet-control-attribution{max-width:calc(100vw - 80px)!important;box-sizing:border-box}</style>
+<a class="gk-home" href="https://geoknightgis.com/" title="Home" aria-label="Home"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M3 11.5 12 4l9 7.5M5.5 10v10h4.5v-5.5h4V20h4.5V10" fill="none" stroke="#c9a227" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg></a>
+</body></html>
